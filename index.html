@@ -4,17 +4,34 @@
   <meta charset="UTF-8">
   <title>钟表</title>
   <style>
+    body,html{
+      padding: 0;
+      margin: 0;
+      background: #E2A15A;
+    }
     .clock{
-      width: 300px;
-      height:300px;
+      width: 148px;
+      height:148px;
+      position: absolute;
+      top:-299px;
+      bottom:0;
+      left:-185px;
+      right:0;
+      margin:auto;
+      border-radius: 50%;
+     
+    }
+    .box{
+     /* border:1px solid #000;*/
+      width: 500px;
+      height: 550px;
+      background: url(clock.png);
       position: absolute;
       top:0;
       bottom:0;
       left:0;
       right:0;
       margin:auto;
-      border:20px solid #999;
-      border-radius: 50%;
     }
   </style>
   <script>
@@ -24,9 +41,9 @@
       creatmark();
       var time=new Date();
 
-      var tt=creackposite(8,50,"red",time.getHours()*30+time.getMinutes()*6/12);
-      var ff=creackposite(6,80,"red",time.getMinutes()*6);
-      var mm=creackposite(4,100,"red",time.getSeconds()*6);
+      var tt=creackposite(8,60,"#fff",time.getHours()*30+time.getMinutes()*6/12);
+      var ff=creackposite(6,100,"#fff",time.getMinutes()*6);
+      var mm=creackposite(4,120,"#fff",time.getSeconds()*6);
 
       setInterval(function(){
         var time=new Date();
@@ -47,7 +64,7 @@
             h=6;
           }
           var div=document.createElement("div");
-          div.style.cssText=("width:"+w+"px;height:"+h+"px;background:#000;position:absolute;top:0;left:0");
+          // div.style.cssText=("width:"+w+"px;height:"+h+"px;background:#000;position:absolute;top:0;left:0");
           div.style.transform="translate("+(300-w)/2+"px,0) rotate("+i*6+"deg)";
           div.style.transformOrigin="center 150px";
           clock.appendChild(div);
@@ -75,7 +92,8 @@
   </script>
 </head>
 <body>
-<div class="clock">
-</div>
+  <div class="box">
+    <div class="clock"></div>
+  </div>
 </body>
 </html>
